@@ -1,0 +1,117 @@
+/* === Container for the entire page === */
+.allContainer {
+  max-width: 900px;
+  margin: 0 auto;
+  padding: 20px;
+  font-family: Arial, sans-serif;
+  color: #333;
+}
+
+/* === Question section container === */
+.question__container {
+  background-color: #f9f9f9;
+  padding: 25px;
+  border-radius: 10px;
+  box-shadow: 0 2px 12px rgba(0, 0, 0, 0.1);
+}
+
+/* === Wrapper inside the question container === */
+.question__wrapper {
+  margin-bottom: 30px;
+}
+
+/* === Header titles === */
+.question__header__title,
+.question__header__titleTwo {
+  margin-bottom: 15px;
+  font-size: 18px;
+}
+
+.highlight {
+  color: #0070f3;
+  font-weight: bold;
+}
+
+/* === Question steps === */
+.questionContainer {
+  margin-top: 15px;
+}
+
+.questionTitle {
+  font-size: 20px;
+  margin-bottom: 10px;
+}
+
+.questionListUl {
+  list-style-type: disc;
+  padding-left: 20px;
+}
+
+.questionListUl li {
+  margin-bottom: 10px;
+  line-height: 1.5;
+}
+
+/* === Form styles === */
+.question_form {
+  display: flex;
+  flex-direction: column;
+  gap: 15px;
+  margin-top: 15px;
+}
+
+/* Inputs and textarea */
+.question_title2,
+.question_description {
+  padding: 10px;
+  border: 1px solid #ccc;
+  border-radius: 6px;
+  font-size: 16px;
+  width: 100%;
+}
+
+.question_description {
+  resize: vertical;
+}
+
+/* Error messages */
+.error {
+  color: red;
+  font-weight: bold;
+}
+
+/* Submit button */
+.question_button1 {
+  background-color: #0070f3;
+  color: #fff;
+  border: none;
+  padding: 12px 20px;
+  border-radius: 6px;
+  cursor: pointer;
+  font-size: 16px;
+  transition: background 0.3s ease;
+}
+
+.question_button1:hover {
+  background-color: #005bb5;
+}
+
+/* === Responsive Mobile Styles === */
+@media screen and (max-width: 600px) {
+  .allContainer {
+    padding: 15px;
+  }
+
+  .question__container {
+    padding: 20px;
+  }
+
+  .questionTitle {
+    font-size: 18px;
+  }
+
+  .question_button1 {
+    padding: 10px 15px;
+    font-size: 15px;
+  }
+}
