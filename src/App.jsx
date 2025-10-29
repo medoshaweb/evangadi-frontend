@@ -1,7 +1,7 @@
 import React from "react";
 import { Routes, Route, Link, Navigate } from "react-router-dom";
 import Login from "./pages/Login/Login";
-import Signup from "../src/pages/SignUp/SignUp.jsx";
+import Signup from "./pages/SignUp/SignUp.jsx";
 import Questions from "./pages/Questions/Questions";
 import AskQuestion from "./pages/AskQuestion/AskQuestion";
 import QuestionDetail from "./pages/QuestionDetail/QuestionDetail";
