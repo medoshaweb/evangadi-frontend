@@ -194,7 +194,7 @@ export default function Signup({ onSwitch }) {
             <p className="terms">
               I agree to the{" "}
               <Link
-                to="../PrivacyPolicy/PrivacyPolicy.jsx"
+                to="/privacy-policy"
                 style={{
                   cursor: "pointer",
                   color: "#ff8c00",
