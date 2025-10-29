@@ -1,7 +1,7 @@
 import { useState } from "react";
 import "./authLayout.css";
 import Login from "../Login/Login.jsx";
-import SignUp from "../SignUp/SignUp.jsx";
+import SignUp from "../Signup";
 import About from "../About/About.jsx";
 import Layout from "../../Layout/Layout.jsx";
 
