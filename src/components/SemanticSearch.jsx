@@ -31,7 +31,7 @@ export default function SemanticSearch({
   async function handleAiClick(question) {
     setLoading(true);
     try {
-      const response = await axios.post("http://localhost:5000/api/ai/ask", {
+      const response = await axios.post("/ai/ask", {
         prompt: question.title,
       });
 
@@ -119,12 +119,24 @@ export default function SemanticSearch({
             marginTop: "10px",
             background: "#f9fafb",
             borderRadius: "8px",
-            padding: "10px",
+            padding: "15px",
             border: "1px solid #ddd",
+            lineHeight: "1.6",
           }}
         >
-          <strong>💡 AI Explanation:</strong>
-          <p style={{ marginTop: "5px", color: "#333" }}>{aiResponses[id]}</p>
+          <strong style={{ color: "#4f46e5", fontSize: "16px" }}>
+            💡 AI Explanation:
+          </strong>
+          <div
+            style={{
+              marginTop: "10px",
+              color: "#333",
+              whiteSpace: "pre-wrap",
+              wordBreak: "break-word",
+            }}
+          >
+            {aiResponses[id]}
+          </div>
         </div>
       ))}
     </div>

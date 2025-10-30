@@ -1,4 +1,5 @@
 import React, { useState } from "react";
+import API from "../api";
 
 export default function ForgotPassword() {
   const [email, setEmail] = useState("");
@@ -13,27 +14,20 @@ export default function ForgotPassword() {
     setSending(true);
 
     try {
-      // Make sure the full backend URL is correct
-      const res = await fetch(
-        "http://localhost:5000/api/auth/forgot-password",
-        {
-          method: "POST",
-          headers: { "Content-Type": "application/json" },
-          body: JSON.stringify({ email }),
-        }
-      );
+      // Use API instance for environment-aware baseURL
+      const res = await API.post("/auth/forgot-password", { email });
 
-      const data = await res.json(); // parse JSON response
-
-      if (!res.ok) {
-        throw new Error(data.message || "Error sending reset email");
-      }
+      const data = res.data;
 
       setMessage(
         data.message || "If that email exists, a reset link has been sent."
       );
     } catch (err) {
-      setError(err.message || "Something went wrong");
+      setError(
+        err.response?.data?.message ||
+          err.message ||
+          "Something went wrong. Please try again."
+      );
     } finally {
       setSending(false);
     }
