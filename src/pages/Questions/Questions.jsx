@@ -97,7 +97,7 @@ export default function Questions() {
       <div className="search-bar">
         <input
           type="text"
-          placeholder="AI Semantic Search Questions and filter"
+          placeholder="AI Semantic Search Questions and filter..."
           value={searchTerm}
           onChange={handleSearchChange}
         />
