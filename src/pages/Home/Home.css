@@ -1,15 +1,28 @@
 .home_container {
   display: flex;
   flex-direction: column;
-  max-width: 80vw;
-  margin: 50px auto;
-  gap: 20px;
+  max-width: 1200px;
+  margin: 30px auto;
+  padding: 0 20px;
+  gap: 30px;
+}
+
+.questions_list {
+  background: white;
+  border-radius: 12px;
+  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.08);
+  padding: 30px;
+  transition: box-shadow 0.3s ease;
+}
+
+.questions_list:hover {
+  box-shadow: 0 6px 30px rgba(0, 0, 0, 0.12);
 }
 
 .ask_welcome_holder {
   display: flex;
   flex-direction: row;
-  justify-content: flex-start; /* removed space-between since arrow is gone */
+  justify-content: flex-start;
   align-items: center;
   gap: 20px;
 }
@@ -36,20 +49,39 @@ a {
   font-weight: bold;
   color: var(--blue-main);
   background-color: white;
+  transition: all 0.3s ease;
+}
+
+.ask_btn:hover {
+  background-color: var(--blue-main);
+  color: white;
+  transform: translateY(-2px);
+  box-shadow: 0 4px 12px rgba(0, 123, 255, 0.3);
 }
 
 .welcome_msg {
   font-size: 20px;
+  color: #333;
+  font-weight: 500;
 }
 
 hr {
   width: 100%;
   margin: auto;
+  border: none;
+  border-top: 1px solid #e0e0e0;
 }
 
 @media screen and (max-width: 568px) {
   .home_container {
-    max-width: 90vw;
+    max-width: 100%;
+    padding: 0 15px;
+    margin: 20px auto;
+  }
+
+  .questions_list {
+    padding: 20px;
+    border-radius: 8px;
   }
 
   .ask_welcome_holder {

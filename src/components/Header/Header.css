@@ -6,6 +6,8 @@
   top: 0;
   z-index: 1000;
   width: 100%;
+  display: flex;
+  flex-direction: column;
 }
 
 .header_container {
@@ -106,7 +108,28 @@
   width: 88%;
 }
 
+/* Desktop: make header horizontal */
+@media (min-width: 769px) {
+  .header {
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: center;
+  }
+
+  .header_container {
+    flex: 0 0 auto;
+  }
+
+  .nav-menu {
+    flex: 1 1 auto;
+  }
+}
+
 @media (max-width: 768px) {
+  .header {
+    flex-direction: column;
+  }
+
   .header_container {
     width: 94% !important;
     padding: 12px 10px !important;
@@ -122,12 +145,13 @@
     display: none;
     flex-direction: column;
     align-items: stretch;
-    width: 94%;
+    width: 100%;
     gap: 0;
     padding: 10px 0;
-    margin: 0 auto;
+    margin: 0;
     background: white;
     border-top: 1px solid #e0e0e0;
+    order: 3;
   }
 
   .nav-menu.open {

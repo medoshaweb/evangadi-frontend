@@ -1,42 +1,60 @@
 .about_section {
   text-align: left;
-  padding: 2rem;
-  border-radius: 8px;
+  padding: 3rem 2rem;
+  border-radius: 12px;
   width: 100%;
+  max-width: 1000px;
+  margin: 30px auto;
+  background: linear-gradient(135deg, #ffffff 0%, #f8f9fa 100%);
+  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.08);
+}
+
+.inner_container {
+  max-width: 800px;
+  margin: 0 auto;
 }
 
 .about_section h2 {
-  color: orange;
-  font-size: 1.5rem;
+  color: #ff8c00;
+  font-size: 1.8rem;
   text-align: left;
+  margin-bottom: 10px;
+  font-weight: 600;
 }
 
 .about_section h1 {
-  color: #4a2d7b; /* Dark purple */
-  font-size: 2rem;
-  margin-bottom: 1rem;
-  font-weight: bold;
+  color: #2c3e50;
+  font-size: 2.5rem;
+  margin-bottom: 1.5rem;
+  font-weight: 700;
 }
 
 .about_section p {
-  font-size: 1rem;
-  color: #333;
-  line-height: 1.5;
+  font-size: 1.1rem;
+  color: #444;
+  line-height: 1.8;
   margin-bottom: 1.5rem;
 }
 
 .how_it_works_btn {
-  background-color: orange;
+  background: linear-gradient(135deg, #ff8c00 0%, #ff6600 100%);
   color: white;
   border: none;
-  padding: 0.75rem 1.5rem;
-  border-radius: 5px;
+  padding: 14px 32px;
+  border-radius: 8px;
   cursor: pointer;
-  font-size: 1rem;
+  font-size: 1.1rem;
+  font-weight: 600;
+  transition: all 0.3s ease;
+  box-shadow: 0 2px 8px rgba(255, 140, 0, 0.3);
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
 }
 
 .how_it_works_btn:hover {
-  background-color: darkorange;
+  background: linear-gradient(135deg, #ff6600 0%, #e55a00 100%);
+  transform: translateY(-2px);
+  box-shadow: 0 4px 12px rgba(255, 140, 0, 0.4);
 }
 /* Styling the design element */
 .design_shape {
