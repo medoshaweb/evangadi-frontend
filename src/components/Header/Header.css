@@ -1,11 +1,26 @@
+.header {
+  background: white;
+  color: black;
+  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+  position: sticky;
+  top: 0;
+  z-index: 1000;
+  width: 100%;
+}
+
 .header_container {
   display: flex;
   justify-content: space-between;
   align-items: center;
   padding: 10px 10px !important;
   margin: auto;
-  width: 83% !important;
+  width: 88% !important;
   padding-right: 0 !important;
+}
+
+.brand img {
+  max-height: 50px;
+  width: auto;
 }
 .navigation_links {
   font-size: 18px !important;
@@ -58,23 +73,114 @@
   padding-right: 0 !important;
 }
 
+/* Hamburger Menu */
+.menu-toggle {
+  display: none;
+  background: transparent;
+  border: 2px solid var(--blue-shade, #0a66c2);
+  border-radius: 6px;
+  padding: 8px 12px;
+  cursor: pointer;
+  font-size: 24px;
+  color: var(--blue-shade, #0a66c2);
+  transition: all 0.3s ease;
+}
+
+.menu-toggle:hover {
+  background-color: var(--blue-shade, #0a66c2);
+  color: white;
+}
+
+.hamburger-icon {
+  display: block;
+  line-height: 1;
+}
+
+/* Navigation Menu */
+.nav-menu {
+  display: flex;
+  align-items: center;
+  gap: 25px;
+  padding: 0 10px;
+  margin: 0 auto;
+  width: 88%;
+}
+
 @media (max-width: 768px) {
-  .logout_btn {
-    width: 100%;
-    margin-left: 0;
-    text-align: center;
-    background-color: transparent;
-    /* color: var(--blue-main) !important; */
-    color: white;
+  .header_container {
+    width: 94% !important;
+    padding: 12px 10px !important;
   }
+
+  .menu-toggle {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+  }
+
+  .nav-menu {
+    display: none;
+    flex-direction: column;
+    align-items: stretch;
+    width: 94%;
+    gap: 0;
+    padding: 10px 0;
+    margin: 0 auto;
+    background: white;
+    border-top: 1px solid #e0e0e0;
+  }
+
+  .nav-menu.open {
+    display: flex;
+  }
+
   .navigation_links {
-    /* color: blue; */
     text-align: center;
-    padding: 10px 0 !important;
+    padding: 12px 0 !important;
+    margin-left: 0 !important;
+    width: 100%;
+    display: block;
+    border-bottom: 1px solid #f0f0f0;
   }
+
   .navigation_links:hover {
-    /* color: var(--blue-main); */
+    background-color: #f5f5f5;
     text-decoration: none;
+  }
+
+  .welcome {
     text-align: center;
+    margin: 12px 0;
+    padding: 8px;
+    background-color: #f0f0f0;
+    border-radius: 4px;
+  }
+
+  .logout_btn,
+  .login_btn {
+    width: 100%;
+    margin-left: 0 !important;
+    margin-top: 8px;
+    text-align: center;
+    padding: 12px 20px !important;
+  }
+
+  .logout_btn {
+    background-color: var(--blue-shade) !important;
+    color: white !important;
+  }
+}
+
+@media (max-width: 576px) {
+  .header_container {
+    width: 96% !important;
+  }
+
+  .nav-menu {
+    width: 96%;
+  }
+
+  .brand img {
+    max-height: 40px;
   }
 }

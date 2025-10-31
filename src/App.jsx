@@ -9,7 +9,7 @@ import ForgotPassword from "./pages/ForgotPassword";
 import ResetPassword from "./pages/ResetPassword";
 import Home from "./pages/Home/Home";
 import Footer from "./components/Footer/Footer";
-import logo from "./assets/images/evangadi-logo-header.png";
+import Header from "./components/Header/Header";
 import bgImage from "./assets/images/evangadi-background.jpg";
 import { useAuth } from "./context/AuthContext";
 import HowItWorks from "./pages/HowItWorks/HowItWorks";
@@ -37,32 +37,7 @@ export default function App() {
         backgroundAttachment: "fixed",
       }}
     >
-      <header className="header">
-        <div className="brand">
-          <Link to="/">
-            <img src={logo} alt="Evangadi Logo" />
-          </Link>
-        </div>
-        <nav>
-          <Link to="/">Home</Link>
-          {user && <Link to="/how-it-works">How it Works</Link>}
-          {user ? (
-            <>
-              <span className="welcome">{`Welcome: ${
-                user.user?.firstName || user.user?.username || "Guest"
-              }`}</span>
-              <button className="btn small" onClick={logout}>
-                Logout
-              </button>
-            </>
-          ) : (
-            <>
-              <Link to="/login">Login</Link>
-              <Link to="/signup">Sign up</Link>
-            </>
-          )}
-        </nav>
-      </header>
+      <Header />
 
       <main className="container">
         <Routes>
