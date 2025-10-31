@@ -48,8 +48,10 @@
 }
 
 .page-title-text {
-  
   text-decoration: none;
+  border-bottom: none !important;
+  padding-bottom: 0;
+  margin-bottom: 0;
 }
 
 .counts-badges {
