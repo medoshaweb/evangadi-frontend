@@ -98,14 +98,15 @@ export default function Questions() {
         </h2>
       </div>
 
-      <h1 className="page-title">
-        Questions
+      <div className="page-title">
+        <h1 className="page-title-text">Questions</h1>
+
         <span className="counts-badges">
           <span className="badge total">{totalQuestions} total</span>
           <span className="badge answered">{answeredCount} answered</span>
           <span className="badge views">{totalViews} views</span>
         </span>
-      </h1>
+      </div>
 
       {/* Search Bar */}
       <div className="search-bar">
