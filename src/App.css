@@ -20,6 +20,45 @@ main.container {
   flex: 1;
   padding: 20px;
   overflow-y: auto; /* ✅ allows scrolling of content */
+  display: flex;
+  gap: 30px;
+  max-width: 1400px;
+  margin: 0 auto;
+}
+
+.main-content-wrapper {
+  flex: 1;
+  min-width: 0;
+}
+
+.sidebar-wrapper {
+  width: 320px;
+  flex-shrink: 0;
+}
+
+/* Full width for auth pages */
+main.container:has(.formcontainer) .main-content-wrapper,
+main.container:has(.innerContainer) .main-content-wrapper,
+main.container:has(.forgot-container) .main-content-wrapper,
+main.container:has(.reset-container) .main-content-wrapper {
+  width: 100%;
+  max-width: 500px;
+  margin: 0 auto;
+}
+
+/* Responsive layout */
+@media (max-width: 1024px) {
+  main.container {
+    flex-direction: column;
+  }
+
+  .sidebar-wrapper {
+    width: 100%;
+  }
+
+  .main-content-wrapper {
+    width: 100%;
+  }
 }
 
 /* Header styling */

@@ -1,5 +1,5 @@
 import React from "react";
-import { Routes, Route, Link, Navigate } from "react-router-dom";
+import { Routes, Route, Navigate, useLocation } from "react-router-dom";
 import Login from "./pages/Login/Login";
 import Signup from "./pages/Signup";
 import Questions from "./pages/Questions/Questions";
@@ -10,6 +10,7 @@ import ResetPassword from "./pages/ResetPassword";
 import Home from "./pages/Home/Home";
 import Footer from "./components/Footer/Footer";
 import Header from "./components/Header/Header";
+import TechnologyArticles from "./components/TechnologyArticles/TechnologyArticles";
 import bgImage from "./assets/images/evangadi-background.jpg";
 import { useAuth } from "./context/AuthContext";
 import HowItWorks from "./pages/HowItWorks/HowItWorks";
@@ -22,24 +23,16 @@ function PrivateRoute({ children }) {
   return user ? children : <Navigate to="/login" />;
 }
 
-export default function App() {
-  const { user, loading, logout } = useAuth();
-  // const { loading } = useAuth();
-  if (loading) return <div>Loading...</div>;
+function AppContent() {
+  const location = useLocation();
+  const hideSidebarRoutes = ['/login', '/signup', '/forgot-password'];
+  const shouldHideSidebar = hideSidebarRoutes.some(route => 
+    location.pathname.startsWith(route)
+  ) || location.pathname.startsWith('/reset-password');
 
   return (
-    <div
-      className="app"
-      style={{
-        backgroundImage: `url(${bgImage})`,
-        backgroundRepeat: "no-repeat",
-        backgroundSize: "cover",
-        backgroundAttachment: "fixed",
-      }}
-    >
-      <Header />
-
-      <main className="container">
+    <>
+      <div className="main-content-wrapper">
         <Routes>
           {/* Public Routes */}
           <Route path="/login" element={<Login />} />
@@ -82,6 +75,35 @@ export default function App() {
             }
           />
         </Routes>
+      </div>
+      {!shouldHideSidebar && (
+        <div className="sidebar-wrapper">
+          <TechnologyArticles />
+        </div>
+      )}
+    </>
+  );
+}
+
+export default function App() {
+  const { user, loading, logout } = useAuth();
+  // const { loading } = useAuth();
+  if (loading) return <div>Loading...</div>;
+
+  return (
+    <div
+      className="app"
+      style={{
+        backgroundImage: `url(${bgImage})`,
+        backgroundRepeat: "no-repeat",
+        backgroundSize: "cover",
+        backgroundAttachment: "fixed",
+      }}
+    >
+      <Header />
+
+      <main className="container">
+        <AppContent />
       </main>
 
       <Footer />
