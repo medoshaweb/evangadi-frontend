@@ -11,6 +11,7 @@ export default function Login() {
   const [errors, setErrors] = useState({});
   const [showPassword, setShowPassword] = useState(false);
   const [success, setSuccess] = useState(null);
+  const [isSubmitting, setIsSubmitting] = useState(false);
   const navigate = useNavigate();
   const { user, login } = useAuth();
 
@@ -50,20 +51,34 @@ export default function Login() {
 
   const handleSubmit = async (e) => {
     e.preventDefault();
+    if (isSubmitting) return; // Prevent double submission
+    
     setErrors({});
     setSuccess(null);
+    setIsSubmitting(true);
 
     const validationErrors = validateForm();
     if (Object.keys(validationErrors).length > 0) {
       setErrors(validationErrors);
+      setIsSubmitting(false);
       return;
     }
 
     try {
-      const res = await API.post("/users/login", form);
+      console.log("Attempting login with:", { email: form.email });
+      const res = await API.post("/users/login", {
+        email: form.email.trim(),
+        password: form.password,
+      });
       console.log("Frontend login response:", res.data);
 
       const { user, token, refreshToken } = res.data;
+      if (!user || !token) {
+        setErrors({ general: "Invalid response from server" });
+        setIsSubmitting(false);
+        return;
+      }
+
       const userData = { user, token, refreshToken };
 
       localStorage.setItem("user", JSON.stringify(userData));
@@ -72,7 +87,14 @@ export default function Login() {
       setSuccess("Login successful! Redirecting...");
       setTimeout(() => navigate("/questions"), 1000);
     } catch (err) {
-      setErrors({ general: err.response?.data?.message || err.message });
+      console.error("Login error:", err);
+      console.error("Error response:", err.response?.data);
+      const errorMessage = 
+        err.response?.data?.message || 
+        err.message || 
+        "Unable to connect to server. Please check if the backend is running.";
+      setErrors({ general: errorMessage });
+      setIsSubmitting(false);
     }
   };
 
@@ -132,8 +154,12 @@ export default function Login() {
               </p>
 
               {/* Submit */}
-              <button type="submit" className="submit_btn">
-                Login
+              <button 
+                type="submit" 
+                className="submit_btn"
+                disabled={isSubmitting}
+              >
+                {isSubmitting ? "Logging in..." : "Login"}
               </button>
             </form>
           </div>
