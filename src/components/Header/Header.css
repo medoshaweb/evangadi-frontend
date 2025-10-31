@@ -61,15 +61,16 @@
 .login_btn {
   background-color: var(--blue-shade);
   color: #0b0b0b !important;
+  font-size: 16px !important;
   border: none;
   border-radius: 4px;
   padding: 10px 30px;
-  margin-left: 15px;
+  margin-left: 5px;
 }
 
 .logout_btn:hover {
   background-color: var(--primary-color) !important;
-  color: #0c0c0c !important;
+  color: #0a66c2 !important;
   border: none;
 }
 
@@ -132,16 +133,17 @@
     gap: 12px;
     flex-wrap: nowrap;
     margin-left: auto;
-    margin-right: 100px;
+    margin-right: 10px;
     padding: 0;
   }
 
   /* Nav links - black color and right aligned */
   .nav-menu .navigation_links {
     color: #000000 !important;
+    white-space: nowrap;
     font-size: 16px !important;
     padding: 8px 12px !important;
-    margin-left: 0 !important;
+    margin-left: 10px !important;
     text-decoration: none;
     display: inline-block;
   }
@@ -154,15 +156,15 @@
   .nav-menu .welcome {
     display: inline-block !important;
     color: var(--blue-shade) !important;
-    font-size: 14px !important;
+    font-size: 18px !important;
     font-weight: 700 !important;
     margin-right: 10px;
     margin-left: 10px;
     padding: 5px 10px;
     white-space: nowrap;
-    overflow: hidden;
-    text-overflow: ellipsis;
-    max-width: 350px;
+    /* overflow: hidden; */
+    /* text-overflow: ellipsis; */
+    max-width: 500px;
   }
 
   /* Login/Logout buttons */
