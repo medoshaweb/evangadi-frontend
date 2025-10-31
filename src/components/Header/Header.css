@@ -115,7 +115,7 @@
   .header {
     flex-direction: row;
     justify-content: space-between;
-    align-items: flex-start; /* align to top when nav wraps */
+    align-items: center; /* keep inline on larger screens */
     overflow: visible;
   }
 
@@ -132,9 +132,10 @@
     margin: 0;
     padding: 0 10px 0 10px;
     justify-content: flex-end;
-    gap: 10px;
-    flex-wrap: wrap; /* allow wrapping so items don't get squished */
-    overflow: visible;
+    gap: 8px;
+    flex-wrap: nowrap; /* keep in one row */
+    overflow-x: auto; /* allow scroll if tight */
+    overflow-y: visible;
   }
 
   /* Ensure desktop links/buttons are inline */
@@ -149,12 +150,12 @@
   }
 
   .nav-menu .welcome {
-    flex: 1 1 auto;
-    min-width: 220px;
-    white-space: normal;
-    overflow: visible;
-    text-overflow: unset;
-    max-width: none;
+    flex: 0 1 auto;
+    min-width: 140px;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    max-width: 220px;
   }
 
   .nav-menu .login_btn,
@@ -166,6 +167,8 @@
     color: #fff !important;
     flex-shrink: 0;
     white-space: nowrap;
+    display: inline-flex;
+    align-items: center;
   }
 }
 
