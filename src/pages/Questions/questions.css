@@ -47,6 +47,10 @@
   border-bottom: 3px solid #0a66c2;
 }
 
+.page-title-text {
+  text-decoration: none;
+}
+
 .counts-badges {
   display: inline-flex;
   gap: 10px;
