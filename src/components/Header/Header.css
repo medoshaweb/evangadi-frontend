@@ -115,7 +115,7 @@
   .header {
     flex-direction: row;
     justify-content: space-between;
-    align-items: center;
+    align-items: flex-start; /* align to top when nav wraps */
     overflow: visible;
   }
 
@@ -130,10 +130,10 @@
     width: auto;
     min-width: 0;
     margin: 0;
-    padding: 0 30px 0 20px;
+    padding: 0 10px 0 10px;
     justify-content: flex-end;
-    gap: 12px;
-    flex-wrap: nowrap;
+    gap: 10px;
+    flex-wrap: wrap; /* allow wrapping so items don't get squished */
     overflow: visible;
   }
 
@@ -149,12 +149,12 @@
   }
 
   .nav-menu .welcome {
-    flex-shrink: 1;
-    min-width: 0;
-    white-space: nowrap;
-    overflow: hidden;
-    text-overflow: ellipsis;
-    max-width: 200px;
+    flex: 1 1 auto;
+    min-width: 220px;
+    white-space: normal;
+    overflow: visible;
+    text-overflow: unset;
+    max-width: none;
   }
 
   .nav-menu .login_btn,
