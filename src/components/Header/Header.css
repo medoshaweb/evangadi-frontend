@@ -110,65 +110,101 @@
   flex-wrap: wrap;
 }
 
-/* Desktop: make header horizontal */
+/* Tablet and Desktop: make header horizontal */
 @media (min-width: 769px) {
   .header {
     flex-direction: row;
     justify-content: space-between;
-    align-items: center; /* keep inline on larger screens */
+    align-items: center;
     overflow: visible;
+    padding: 0;
   }
 
   .header_container {
     flex: 0 0 auto;
-    min-width: 0;
-    padding: 10px 30px !important;
+    min-width: 200px;
+    padding: 10px 20px !important;
+    max-width: 300px;
   }
 
   .nav-menu {
+    display: flex !important;
     flex: 1 1 auto;
     width: auto;
-    min-width: 0;
+    min-width: 400px;
     margin: 0;
-    padding: 0 10px 0 10px;
+    padding: 0 20px;
     justify-content: flex-end;
-    gap: 8px;
-    flex-wrap: nowrap; /* keep in one row */
-    overflow-x: auto; /* allow scroll if tight */
-    overflow-y: visible;
+    align-items: center;
+    gap: 10px;
+    flex-wrap: nowrap;
+    overflow: visible;
+    order: 0;
   }
 
   /* Ensure desktop links/buttons are inline */
   .nav-menu .navigation_links {
-    display: inline-flex;
+    display: inline-flex !important;
     align-items: center;
-    padding: 8px 12px !important;
-    border-bottom: none;
-    width: auto;
+    padding: 8px 10px !important;
+    margin-left: 0 !important;
+    border-bottom: none !important;
+    width: auto !important;
     flex-shrink: 0;
     white-space: nowrap;
+    text-align: left;
   }
 
   .nav-menu .welcome {
-    flex: 0 1 auto;
-    min-width: 140px;
+    display: inline-block !important;
+    flex: 0 0 auto;
+    min-width: 120px;
+    max-width: 200px;
     white-space: nowrap;
     overflow: hidden;
     text-overflow: ellipsis;
-    max-width: 220px;
+    margin-right: 5px !important;
+    margin-left: 5px;
+    padding: 5px 8px;
+    background-color: transparent !important;
+    border-radius: 0;
+    text-align: left;
   }
 
   .nav-menu .login_btn,
   .nav-menu .logout_btn {
-    width: auto;
-    margin-left: 8px !important;
-    padding: 10px 20px !important;
+    display: inline-flex !important;
+    width: auto !important;
+    margin-left: 5px !important;
+    margin-top: 0 !important;
+    padding: 10px 18px !important;
     background-color: var(--blue-shade) !important;
     color: #fff !important;
+    border: none;
+    border-radius: 4px;
     flex-shrink: 0;
     white-space: nowrap;
-    display: inline-flex;
     align-items: center;
+    justify-content: center;
+    text-align: center;
+    cursor: pointer;
+  }
+}
+
+/* Larger tablets and small laptops */
+@media (min-width: 1024px) {
+  .header_container {
+    max-width: 350px;
+    padding: 10px 30px !important;
+  }
+
+  .nav-menu {
+    padding: 0 30px;
+    gap: 12px;
+  }
+
+  .nav-menu .welcome {
+    max-width: 250px;
   }
 }
 
