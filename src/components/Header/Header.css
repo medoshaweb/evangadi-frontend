@@ -8,16 +8,17 @@
   width: 100%;
   display: flex;
   flex-direction: column;
+  overflow-x: visible;
 }
 
 .header_container {
   display: flex;
   justify-content: space-between;
   align-items: center;
-  padding: 10px 10px !important;
+  padding: 10px 20px !important;
   margin: auto;
-  width: 88% !important;
-  padding-right: 0 !important;
+  width: 100%;
+  max-width: 1400px;
 }
 
 .brand img {
@@ -115,37 +116,56 @@
     flex-direction: row;
     justify-content: space-between;
     align-items: center;
+    overflow: visible;
   }
 
   .header_container {
     flex: 0 0 auto;
+    min-width: 0;
+    padding: 10px 30px !important;
   }
 
   .nav-menu {
     flex: 1 1 auto;
     width: auto;
+    min-width: 0;
     margin: 0;
+    padding: 0 30px 0 20px;
     justify-content: flex-end;
-    gap: 16px;
+    gap: 12px;
     flex-wrap: nowrap;
+    overflow: visible;
   }
 
   /* Ensure desktop links/buttons are inline */
   .nav-menu .navigation_links {
     display: inline-flex;
     align-items: center;
-    padding: 8px 10px !important;
+    padding: 8px 12px !important;
     border-bottom: none;
     width: auto;
+    flex-shrink: 0;
+    white-space: nowrap;
+  }
+
+  .nav-menu .welcome {
+    flex-shrink: 1;
+    min-width: 0;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    max-width: 200px;
   }
 
   .nav-menu .login_btn,
   .nav-menu .logout_btn {
     width: auto;
-    margin-left: 10px !important;
-    padding: 10px 18px !important;
+    margin-left: 8px !important;
+    padding: 10px 20px !important;
     background-color: var(--blue-shade) !important;
     color: #fff !important;
+    flex-shrink: 0;
+    white-space: nowrap;
   }
 }
 

@@ -77,7 +77,14 @@ export default function Questions() {
     fetchQuestions(newPage, searchTerm);
   };
 
-  const { questions, page, totalPages } = questionsData;
+  const { questions, page, totalPages, total } = questionsData;
+  const totalQuestions = total || (questions ? questions.length : 0);
+  const answeredCount = Array.isArray(questions)
+    ? questions.reduce((acc, q) => acc + (q.answersCount > 0 ? 1 : 0), 0)
+    : 0;
+  const totalViews = Array.isArray(questions)
+    ? questions.reduce((acc, q) => acc + (q.views || 0), 0)
+    : 0;
 
   return (
     <div className="questions-page container">
@@ -91,7 +98,14 @@ export default function Questions() {
         </h2>
       </div>
 
-      <h1 className="page-title">Questions</h1>
+      <h1 className="page-title">
+        Questions
+        <span className="counts-badges">
+          <span className="badge total">{totalQuestions} total</span>
+          <span className="badge answered">{answeredCount} answered</span>
+          <span className="badge views">{totalViews} views</span>
+        </span>
+      </h1>
 
       {/* Search Bar */}
       <div className="search-bar">
