@@ -1,6 +1,6 @@
 .container {
   width: 85%;
-  height: 100vh;
+  min-height: 100vh;
   margin: 0 auto;
   padding: 2rem 0;
 }
@@ -264,6 +264,15 @@
 
   .arrow-link {
     font-size: 1.3rem;
+  }
+
+  .container {
+    width: 92%;
+    padding: 1.25rem 0;
+  }
+
+  .search-input {
+    width: 100%;
   }
 }
 

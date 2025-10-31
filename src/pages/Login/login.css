@@ -1,4 +1,4 @@
-*/ */ */ :root {
+:root {
   --primary-color: #ff8c00; /* accent color, adjust as needed */
   --text-color: #333;
   --border-color: #ddd;
@@ -11,7 +11,7 @@
   display: flex;
   justify-content: center;
   align-items: center;
-  height: 100vh;
+  min-height: 100vh;
   background: var(--bg-light);
 }
 .login_page {
@@ -244,6 +244,19 @@ input:focus {
 }
 
 /* 📱 Responsive */
+@media (max-width: 900px) {
+  .login_page {
+    flex-direction: column;
+  }
+  .login_left,
+  .login_right {
+    flex: 1 1 auto;
+    width: 100%;
+    padding: 1.25rem;
+    border-left: none;
+  }
+}
+
 @media (max-width: 480px) {
   .innerContainer {
     padding: 2rem;

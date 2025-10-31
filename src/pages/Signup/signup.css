@@ -1,5 +1,3 @@
-
-
 :root {
   --primary-color: #516cf0;
   --background-color: #f9f9fc;
@@ -28,8 +26,8 @@
 }
 
 .signup-container {
-  flex: 0 0 500px; /* fixed width, won’t shrink */
-  max-width: 50%; /* optional proportional width */
+  flex: 0 0 500px; /* fixed width on large screens */
+  max-width: 50%;
   background-color: #fff;
   padding: 10px;
   border-radius: 10px;
@@ -60,7 +58,7 @@
 }
 
 form input {
-  width: 95%;
+  width: 100%;
   padding: 12px 14px;
 
   border: 1px solid #ccc;
@@ -150,13 +148,36 @@ form input {
 }
 
 /* Responsive */
-@media (max-width: 850px) {
-  .signup-container {
-    flex-direction: column;
+@media (max-width: 1024px) {
+  .page-wrapper {
+    gap: 24px;
+    padding: 16px;
   }
+  .signup-container {
+    flex: 1 1 520px;
+    max-width: 600px;
+  }
+  .about-container {
+    max-width: 600px;
+  }
+}
 
+@media (max-width: 850px) {
+  .page-wrapper {
+    flex-direction: column;
+    align-items: stretch;
+  }
+  .signup-container,
+  .about-container,
   .about-section {
-    padding: 30px;
+    max-width: 100%;
+    width: 100%;
+  }
+  .about-section {
+    padding: 24px;
     text-align: center;
+  }
+  .nameinputs {
+    flex-direction: column;
   }
 }
