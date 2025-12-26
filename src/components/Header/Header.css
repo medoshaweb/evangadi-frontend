@@ -46,11 +46,7 @@
   text-decoration: none;
 }
 
-/* .login_btn {
-  padding: 10px 20px !important;
-  color: rgb(10, 9, 9) !important;
-  background-color: var(--blue-shade) !important;
-} */
+
 
 .login_btn:hover {
   background-color: var(--blue-main) !important;
